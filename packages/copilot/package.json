@@ -1,0 +1,42 @@
+{
+  "name": "copliot",
+  "version": "1.0.1-beta",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "beta": "npm publish --tag beta",
+    "build": "father-build",
+    "next": "npm publish --tag next",
+    "prepare": "npm run build",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test:ui": "vitest --ui"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ant-design/icons": "^4.0.2",
+    "@umijs/utils": "4.0.12",
+    "ahooks": "3.7.5",
+    "async-validator": "^3.5.1",
+    "classnames": "^2.3.1",
+    "color": "^3.1.2",
+    "dayjs": "^1.11.7",
+    "form-render": "2.0.11",
+    "less": "^3.0.0",
+    "lodash-es": "^4.17.21",
+    "rc-color-picker": "^1.2.6",
+    "table-render": "2.0.7",
+    "virtualizedtableforantd4": "^1.1.2",
+    "zustand": "4.1.5",
+    "zx": "^4.3.0"
+  },
+  "devDependencies": {
+    "deep-equal": "^2.0.3",
+    "rollup-plugin-copy": "^3.4.0"
+  },
+  "peerDependencies": {
+    "antd": "4.x || 5.x",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}
