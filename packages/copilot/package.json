@@ -1,18 +1,67 @@
 {
   "name": "copliot",
-  "version": "1.0.1-beta",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.2-beta",
+  "description": "通过 JSON Schema 生成标准 Form，常用于自定义搭建配置界面生成",
+  "keywords": [
+    "Form",
+    "FormRender",
+    "Render",
+    "Yakin",
+    "React",
+    "Json Schema",
+    "Ant Design",
+    "copliot"
+  ],
+  "homepage": "https://Yakin.fun/form-render",
+  "bugs": {
+    "url": "https://github.com/alibaba/x-render/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:alibaba/form-render.git"
+  },
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Tw93",
+      "email": "tw93@qq.com"
+    },
+    {
+      "name": "mankaiviky",
+      "email": "mankaiviky@163.com"
+    },
+    {
+      "name": "FateRiddle",
+      "email": "fateriddle@gmail.com"
+    }
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "bin": {
+    "copilot": "bin/copilot.js"
+  },
+  "files": [
+    "es",
+    "lib",
+    "package.json"
+  ],
   "scripts": {
     "beta": "npm publish --tag beta",
     "build": "father-build",
     "next": "npm publish --tag next",
     "prepare": "npm run build",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "postpublish": "git push --tags",
     "test:ui": "vitest --ui"
   },
-  "author": "",
-  "license": "ISC",
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
   "dependencies": {
     "@ant-design/icons": "^4.0.2",
     "@umijs/utils": "4.0.12",
@@ -34,9 +83,16 @@
     "deep-equal": "^2.0.3",
     "rollup-plugin-copy": "^3.4.0"
   },
+  "resolutions": {
+    "**/form-render": "2.0.11"
+  },
   "peerDependencies": {
     "antd": "4.x || 5.x",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
-  }
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "sideEffect": false
 }
